@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "CryptoCurrencyKit",
-    exclude: ["Sources/CoinCurrency",
-              "Sources/Ticker.swift",
-              "Sources/Global.swift"]
+    exclude: ["Sources/CryptoCurrencyKit/CryptoCurrencyKit.swift",
+              "Sources/CryptoCurrencyKit/Ticker.swift",
+              "Sources/CryptoCurrencyKit/Global.swift"]
 )
