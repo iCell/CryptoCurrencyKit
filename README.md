@@ -1,0 +1,3 @@
+# CryptoCurrencyKit
+
+A description of this package.
