@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8B5F4DF1F70FD02009E5C59"
-               BuildableName = "Demo"
-               BlueprintName = "Demo"
+               BlueprintIdentifier = "CryptoCurrencyKit::CryptoCurrencyKit"
+               BuildableName = "CryptoCurrencyKit.framework"
+               BlueprintName = "CryptoCurrencyKit"
                ReferencedContainer = "container:CryptoCurrencyKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,15 +30,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8B5F4DF1F70FD02009E5C59"
-            BuildableName = "Demo"
-            BlueprintName = "Demo"
-            ReferencedContainer = "container:CryptoCurrencyKit.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -53,16 +44,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8B5F4DF1F70FD02009E5C59"
-            BuildableName = "Demo"
-            BlueprintName = "Demo"
+            BlueprintIdentifier = "CryptoCurrencyKit::CryptoCurrencyKit"
+            BuildableName = "CryptoCurrencyKit.framework"
+            BlueprintName = "CryptoCurrencyKit"
             ReferencedContainer = "container:CryptoCurrencyKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -72,16 +62,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8B5F4DF1F70FD02009E5C59"
-            BuildableName = "Demo"
-            BlueprintName = "Demo"
+            BlueprintIdentifier = "CryptoCurrencyKit::CryptoCurrencyKit"
+            BuildableName = "CryptoCurrencyKit.framework"
+            BlueprintName = "CryptoCurrencyKit"
             ReferencedContainer = "container:CryptoCurrencyKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -3,11 +3,30 @@
    archiveVersion = "1";
    objectVersion = "46";
    objects = {
+      "CryptoCurrencyKit::CryptoCurrencyKit" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_23";
+         buildPhases = (
+            "OBJ_26",
+            "OBJ_30",
+         );
+         dependencies = (
+         );
+         name = "CryptoCurrencyKit";
+         productName = "CryptoCurrencyKit";
+         productReference = "CryptoCurrencyKit::CryptoCurrencyKit::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "CryptoCurrencyKit::CryptoCurrencyKit::Product" = {
+         isa = "PBXFileReference";
+         path = "CryptoCurrencyKit.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
       "CryptoCurrencyKit::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_11";
+         buildConfigurationList = "OBJ_17";
          buildPhases = (
-            "OBJ_14",
+            "OBJ_20",
          );
          dependencies = (
          );
@@ -28,22 +47,55 @@
             "en",
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_9";
+         productRefGroup = "OBJ_14";
          projectDirPath = ".";
          targets = (
             "CryptoCurrencyKit::SwiftPMPackageDescription",
+            "CryptoCurrencyKit::CryptoCurrencyKit",
          );
       };
+      "OBJ_10" = {
+         isa = "PBXFileReference";
+         path = "CryptoCurrencyKit.swift";
+         sourceTree = "<group>";
+      };
       "OBJ_11" = {
+         isa = "PBXFileReference";
+         path = "Global.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_12" = {
+         isa = "PBXFileReference";
+         path = "Ticker.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_13" = {
+         isa = "PBXGroup";
+         children = (
+         );
+         name = "Tests";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_14" = {
+         isa = "PBXGroup";
+         children = (
+            "CryptoCurrencyKit::CryptoCurrencyKit::Product",
+         );
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "OBJ_17" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_12",
-            "OBJ_13",
+            "OBJ_18",
+            "OBJ_19",
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Debug";
       };
-      "OBJ_12" = {
+      "OBJ_18" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             LD = "/usr/bin/true";
@@ -61,7 +113,7 @@
          };
          name = "Debug";
       };
-      "OBJ_13" = {
+      "OBJ_19" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             LD = "/usr/bin/true";
@@ -79,16 +131,6 @@
          };
          name = "Release";
       };
-      "OBJ_14" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_15",
-         );
-      };
-      "OBJ_15" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
       "OBJ_2" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
@@ -97,6 +139,105 @@
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Debug";
+      };
+      "OBJ_20" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_21",
+         );
+      };
+      "OBJ_21" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_23" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_24",
+            "OBJ_25",
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Debug";
+      };
+      "OBJ_24" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "CryptoCurrencyKit.xcodeproj/CryptoCurrencyKit_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "CryptoCurrencyKit";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "CryptoCurrencyKit";
+         };
+         name = "Debug";
+      };
+      "OBJ_25" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks",
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+            );
+            INFOPLIST_FILE = "CryptoCurrencyKit.xcodeproj/CryptoCurrencyKit_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "CryptoCurrencyKit";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "CryptoCurrencyKit";
+         };
+         name = "Release";
+      };
+      "OBJ_26" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_27",
+            "OBJ_28",
+            "OBJ_29",
+         );
+      };
+      "OBJ_27" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_10";
+      };
+      "OBJ_28" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_11";
+      };
+      "OBJ_29" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -129,6 +270,11 @@
             USE_HEADERMAP = "NO";
          };
          name = "Debug";
+      };
+      "OBJ_30" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
       };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
@@ -165,8 +311,8 @@
          children = (
             "OBJ_6",
             "OBJ_7",
-            "OBJ_8",
-            "OBJ_9",
+            "OBJ_13",
+            "OBJ_14",
          );
          path = "";
          sourceTree = "<group>";
@@ -180,6 +326,7 @@
       "OBJ_7" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_8",
          );
          name = "Sources";
          path = "";
@@ -188,18 +335,22 @@
       "OBJ_8" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_9",
          );
-         name = "Tests";
+         name = "CryptoCurrencyKit";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_9" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_10",
+            "OBJ_11",
+            "OBJ_12",
          );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
+         name = "Sources";
+         path = "Sources";
+         sourceTree = "<group>";
       };
    };
    rootObject = "OBJ_1";
