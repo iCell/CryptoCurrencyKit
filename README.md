@@ -52,7 +52,7 @@ $ brew install carthage
 To integrate CryptoCurrencyKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "https://github.com/iCell/CryptoCurrency.git"
+github "iCell/CryptoCurrencyKit"
 ```
 
 Run `carthage update` to build the framework and drag the built `CryptoCurrencyKit.framework` into your Xcode project.
