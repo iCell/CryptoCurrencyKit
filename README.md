@@ -1,6 +1,5 @@
 # CryptoCurrencyKit
 
-![badge-pod] ![badge-languages] ![badge-pms] ![badge-platforms]
 
 CryptoCurrencyKit is an API kit based on [CryptoCurrency Market Capitalizations](https://coinmarketcap.com/api/)
 
