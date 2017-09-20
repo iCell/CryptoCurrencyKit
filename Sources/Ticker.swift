@@ -85,6 +85,12 @@ public struct Ticker {
     }
 }
 
+extension Ticker: Equatable {
+    public static func ==(lhs: Ticker, rhs: Ticker) -> Bool {
+        return lhs.id.hashValue == rhs.id.hashValue
+    }
+}
+
 extension Ticker: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
