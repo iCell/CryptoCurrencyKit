@@ -6,28 +6,28 @@
 //
 
 public struct Global {
-    let bitCoinPercentageOfMarketCap: Double
-    let activeCurrencies: Int
-    let activeAssets: Int
-    let activeMarkets: Int
+    public let bitCoinPercentageOfMarketCap: Double
+    public let activeCurrencies: Int
+    public let activeAssets: Int
+    public let activeMarkets: Int
     
-    let totalMarketCapUSD: Double
-    let totalVolumeUSD24h: Double
+    public let totalMarketCapUSD: Double
+    public let totalVolumeUSD24h: Double
     
-    let totalMarketCapEUR: Double?
-    let totalVolumeEUR24h: Double?
+    public let totalMarketCapEUR: Double?
+    public let totalVolumeEUR24h: Double?
     
-    let totalMarketCapGBP: Double?
-    let totalVolumeGBP24h: Double?
+    public let totalMarketCapGBP: Double?
+    public let totalVolumeGBP24h: Double?
     
-    let totalMarketCapJPY: Double?
-    let totalVolumeJPY24h: Double?
+    public let totalMarketCapJPY: Double?
+    public let totalVolumeJPY24h: Double?
     
-    let totalMarketCapCNY: Double?
-    let totalVolumeCNY24h: Double?
+    public let totalMarketCapCNY: Double?
+    public let totalVolumeCNY24h: Double?
     
-    let totalMarketCapHKD: Double?
-    let totalVolumeHKD24h: Double?
+    public let totalMarketCapHKD: Double?
+    public let totalVolumeHKD24h: Double?
     
     enum CodingKeys: String, CodingKey {
         case bitCoinPercentageOfMarketCap = "bitcoin_percentage_of_market_cap"

@@ -6,43 +6,43 @@
 //
 
 public struct Ticker {
-    let id: String
-    let name: String
-    let symbol: String
-    let rank: String
+    public let id: String
+    public let name: String
+    public let symbol: String
+    public let rank: String
     
-    let availableSupply: String?
-    let totalSupply: String?
-    let percentChange1h: String?
-    let percentChange24h: String?
-    let percentChange7d: String?
-    let lastUpdated: String
+    public let availableSupply: String?
+    public let totalSupply: String?
+    public let percentChange1h: String?
+    public let percentChange24h: String?
+    public let percentChange7d: String?
+    public let lastUpdated: String
     
-    let priceBTC: String
+    public let priceBTC: String
     
-    let priceUSD: String
-    let volumeUSD24h: String?
-    let marketCapUSD: String?
+    public let priceUSD: String
+    public let volumeUSD24h: String?
+    public let marketCapUSD: String?
     
-    let priceEUR: String?
-    let volumeEUR24h: String?
-    let marketCapEUR: String?
+    public let priceEUR: String?
+    public let volumeEUR24h: String?
+    public let marketCapEUR: String?
     
-    let priceGBP: String?
-    let volumeGBP24h: String?
-    let marketCapGBP: String?
+    public let priceGBP: String?
+    public let volumeGBP24h: String?
+    public let marketCapGBP: String?
     
-    let priceJPY: String?
-    let volumeJPY24h: String?
-    let marketCapJPY: String?
+    public let priceJPY: String?
+    public let volumeJPY24h: String?
+    public let marketCapJPY: String?
     
-    let priceCNY: String?
-    let volumeCNY24h: String?
-    let marketCapCNY: String?
+    public let priceCNY: String?
+    public let volumeCNY24h: String?
+    public let marketCapCNY: String?
     
-    let priceHKD: String?
-    let volumeHKD24h: String?
-    let marketCapHKD: String?
+    public let priceHKD: String?
+    public let volumeHKD24h: String?
+    public let marketCapHKD: String?
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -81,7 +81,6 @@ extension CryptoCurrencyKit {
             } else if let error = error {
                 response?(ResponseD.failure(error: error))
             }
-            }.resume()
+        }.resume()
     }
 }
-
