@@ -91,6 +91,59 @@ extension Ticker: Equatable {
     }
 }
 
+extension Ticker {
+    public func price(for money: CryptoCurrencyKit.Money) -> Double? {
+        switch money {
+        case .cny:
+            return priceCNY
+        case .usd:
+            return priceUSD
+        case .eur:
+            return priceEUR
+        case .gbp:
+            return priceGBP
+        case .hkd:
+            return priceHKD
+        case .jpy:
+            return priceJPY
+        }
+    }
+    
+    public func volume24h(for money: CryptoCurrencyKit.Money) -> Double? {
+        switch money {
+        case .cny:
+            return volumeCNY24h
+        case .usd:
+            return volumeUSD24h
+        case .eur:
+            return volumeEUR24h
+        case .gbp:
+            return volumeGBP24h
+        case .hkd:
+            return volumeHKD24h
+        case .jpy:
+            return volumeJPY24h
+        }
+    }
+    
+    public func marketCap(for money: CryptoCurrencyKit.Money) -> Double? {
+        switch money {
+        case .cny:
+            return marketCapCNY
+        case .usd:
+            return marketCapUSD
+        case .eur:
+            return marketCapEUR
+        case .gbp:
+            return marketCapGBP
+        case .hkd:
+            return marketCapHKD
+        case .jpy:
+            return marketCapJPY
+        }
+    }
+}
+
 extension Ticker: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

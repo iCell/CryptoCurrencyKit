@@ -1,31 +1,6 @@
 import Foundation
 
 public struct CryptoCurrencyKit {
-    public enum Money: String {
-        case usd = "USD"
-        case eur = "EUR"
-        case gbp = "GBP"
-        case jpy = "JPY"
-        case cny = "CNY"
-        case hkd = "HKD"
-        
-        public var symbol: String {
-            switch self {
-            case .cny:
-                return "¥"
-            case .eur:
-                return "€"
-            case .gbp:
-                return "£"
-            case .jpy:
-                return "¥"
-            case .usd:
-                return "$"
-            case .hkd:
-                return "$"
-            }
-        }
-    }
     
     public static func fetchTickers(convert: Money = .usd, limit: Int? = nil, response: ((_ r: ResponseA<Ticker>) -> Void)?) {
         var urlString = "https://api.coinmarketcap.com/v1/ticker/"
@@ -57,6 +32,34 @@ public struct CryptoCurrencyKit {
     public static func fetchGlobal(convert: Money = .usd, response: ((_ r: ResponseD<Global>) -> Void)?) {
         let urlRequest = URLRequest(url: URL(string: "https://api.coinmarketcap.com/v1/global/")!)
         requestD(urlRequest: urlRequest, response: response)
+    }
+}
+
+extension CryptoCurrencyKit {
+    public enum Money: String {
+        case usd = "USD"
+        case eur = "EUR"
+        case gbp = "GBP"
+        case jpy = "JPY"
+        case cny = "CNY"
+        case hkd = "HKD"
+        
+        public var symbol: String {
+            switch self {
+            case .cny:
+                return "¥"
+            case .eur:
+                return "€"
+            case .gbp:
+                return "£"
+            case .jpy:
+                return "¥"
+            case .usd:
+                return "$"
+            case .hkd:
+                return "$"
+            }
+        }
     }
 }
 
