@@ -9,40 +9,40 @@ public struct Ticker {
     public let id: String
     public let name: String
     public let symbol: String
-    public let rank: String
+    public let rank: Int?
     
-    public let availableSupply: String?
-    public let totalSupply: String?
-    public let percentChange1h: String?
-    public let percentChange24h: String?
-    public let percentChange7d: String?
-    public let lastUpdated: String
+    public let availableSupply: Double?
+    public let totalSupply: Double?
+    public let percentChange1h: Double?
+    public let percentChange24h: Double?
+    public let percentChange7d: Double?
+    public let lastUpdated: Double?
     
-    public let priceBTC: String
+    public let priceBTC: Double?
     
-    public let priceUSD: String
-    public let volumeUSD24h: String?
-    public let marketCapUSD: String?
+    public let priceUSD: Double?
+    public let volumeUSD24h: Double?
+    public let marketCapUSD: Double?
     
-    public let priceEUR: String?
-    public let volumeEUR24h: String?
-    public let marketCapEUR: String?
+    public let priceEUR: Double?
+    public let volumeEUR24h: Double?
+    public let marketCapEUR: Double?
     
-    public let priceGBP: String?
-    public let volumeGBP24h: String?
-    public let marketCapGBP: String?
+    public let priceGBP: Double?
+    public let volumeGBP24h: Double?
+    public let marketCapGBP: Double?
     
-    public let priceJPY: String?
-    public let volumeJPY24h: String?
-    public let marketCapJPY: String?
+    public let priceJPY: Double?
+    public let volumeJPY24h: Double?
+    public let marketCapJPY: Double?
     
-    public let priceCNY: String?
-    public let volumeCNY24h: String?
-    public let marketCapCNY: String?
+    public let priceCNY: Double?
+    public let volumeCNY24h: Double?
+    public let marketCapCNY: Double?
     
-    public let priceHKD: String?
-    public let volumeHKD24h: String?
-    public let marketCapHKD: String?
+    public let priceHKD: Double?
+    public let volumeHKD24h: Double?
+    public let marketCapHKD: Double?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -132,33 +132,131 @@ extension Ticker: Decodable {
         id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         symbol = try values.decode(String.self, forKey: .symbol)
-        rank = try values.decode(String.self, forKey: .rank)
+        rank = try Int(values.decode(String.self, forKey: .rank))
 
-        availableSupply = try? values.decode(String.self, forKey: .availableSupply)
-        totalSupply = try? values.decode(String.self, forKey: .totalSupply)
-        percentChange1h = try? values.decode(String.self, forKey: .percentChange1h)
-        percentChange24h = try? values.decode(String.self, forKey: .percentChange24h)
-        percentChange7d = try? values.decode(String.self, forKey: .percentChange7d)
-        lastUpdated = try values.decode(String.self, forKey: .lastUpdated)
-        priceBTC = try values.decode(String.self, forKey: .priceBTC)
-        priceUSD = try values.decode(String.self, forKey: .priceUSD)
-        volumeUSD24h = try? values.decode(String.self, forKey: .volumeUSD24h)
-        marketCapUSD = try? values.decode(String.self, forKey: .marketCapUSD)
-        priceEUR = try? values.decode(String.self, forKey: .priceEUR)
-        volumeEUR24h = try? values.decode(String.self, forKey: .volumeEUR24h)
-        marketCapEUR = try? values.decode(String.self, forKey: .marketCapEUR)
-        priceGBP = try? values.decode(String.self, forKey: .priceGBP)
-        volumeGBP24h = try? values.decode(String.self, forKey: .volumeGBP24h)
-        marketCapGBP = try? values.decode(String.self, forKey: .marketCapGBP)
-        priceCNY = try? values.decode(String.self, forKey: .priceCNY)
-        volumeCNY24h = try? values.decode(String.self, forKey: .volumeCNY24h)
-        marketCapCNY = try? values.decode(String.self, forKey: .marketCapCNY)
-        priceHKD = try? values.decode(String.self, forKey: .priceHKD)
-        volumeHKD24h = try? values.decode(String.self, forKey: .volumeHKD24h)
-        marketCapHKD = try? values.decode(String.self, forKey: .marketCapHKD)
-        priceJPY = try? values.decode(String.self, forKey: .priceJPY)
-        volumeJPY24h = try? values.decode(String.self, forKey: .volumeJPY24h)
-        marketCapJPY = try? values.decode(String.self, forKey: .marketCapJPY)
+        if let availableSupplyTemp = try? values.decode(String.self, forKey: .availableSupply) {
+            availableSupply = Double(availableSupplyTemp)
+        } else {
+            availableSupply = nil
+        }
+        if let totalSupplyTemp = try? values.decode(String.self, forKey: .totalSupply) {
+            totalSupply = Double(totalSupplyTemp)
+        } else {
+            totalSupply = nil
+        }
+        if let lastUpdatedTemp = try? values.decode(String.self, forKey: .lastUpdated) {
+            lastUpdated = Double(lastUpdatedTemp)
+        } else {
+            lastUpdated = nil
+        }
+        priceBTC = try Double(values.decode(String.self, forKey: .priceBTC))
+        priceUSD = try Double(values.decode(String.self, forKey: .priceUSD))
+        if let volumeUSD24hTemp = try? values.decode(String.self, forKey: .volumeUSD24h) {
+            volumeUSD24h = Double(volumeUSD24hTemp)
+        } else {
+            volumeUSD24h = nil
+        }
+        if let marketCapUSDTemp = try? values.decode(String.self, forKey: .marketCapUSD) {
+            marketCapUSD = Double(marketCapUSDTemp)
+        } else {
+            marketCapUSD = nil
+        }
+        
+        if let percentChange1hTemp = try? values.decode(String.self, forKey: .percentChange1h) {
+            percentChange1h = Double(percentChange1hTemp)
+        } else {
+            percentChange1h = nil
+        }
+        if let percentChange24hTemp = try? values.decode(String.self, forKey: .percentChange24h) {
+            percentChange24h = Double(percentChange24hTemp)
+        } else {
+            percentChange24h = nil
+        }
+        if let percentChange7dtemp = try? values.decode(String.self, forKey: .percentChange7d) {
+            percentChange7d = Double(percentChange7dtemp)
+        } else {
+            percentChange7d = nil
+        }
+        
+        if let priceEURTemp = try? values.decode(String.self, forKey: .priceEUR) {
+            priceEUR = Double(priceEURTemp)
+        } else {
+            priceEUR = nil
+        }
+        if let volumeEUR24hTemp = try? values.decode(String.self, forKey: .volumeEUR24h) {
+            volumeEUR24h = Double(volumeEUR24hTemp)
+        } else {
+            volumeEUR24h = nil
+        }
+        if let marketCapEURTemp = try? values.decode(String.self, forKey: .marketCapEUR) {
+            marketCapEUR = Double(marketCapEURTemp)
+        } else {
+            marketCapEUR = nil
+        }
+        
+        if let priceGBPTemp = try? values.decode(String.self, forKey: .priceGBP) {
+            priceGBP = Double(priceGBPTemp)
+        } else {
+            priceGBP = nil
+        }
+        if let volumeGBP24hTemp = try? values.decode(String.self, forKey: .volumeGBP24h) {
+            volumeGBP24h = Double(volumeGBP24hTemp)
+        } else {
+            volumeGBP24h = nil
+        }
+        if let marketCapGBPTemp = try? values.decode(String.self, forKey: .marketCapGBP) {
+            marketCapGBP = Double(marketCapGBPTemp)
+        } else {
+            marketCapGBP = nil
+        }
+        
+        if let priceCNYTemp = try? values.decode(String.self, forKey: .priceCNY) {
+            priceCNY = Double(priceCNYTemp)
+        } else {
+            priceCNY = nil
+        }
+        if let volumeCNY24hTemp = try? values.decode(String.self, forKey: .volumeCNY24h) {
+            volumeCNY24h = Double(volumeCNY24hTemp)
+        } else {
+            volumeCNY24h = nil
+        }
+        if let marketCapCNYTemp = try? values.decode(String.self, forKey: .marketCapCNY) {
+            marketCapCNY = Double(marketCapCNYTemp)
+        } else {
+            marketCapCNY = nil
+        }
+        
+        if let priceHKDTemp = try? values.decode(String.self, forKey: .priceHKD) {
+            priceHKD = Double(priceHKDTemp)
+        } else {
+            priceHKD = nil
+        }
+        if let volumeHKD24hTemp = try? values.decode(String.self, forKey: .volumeHKD24h) {
+            volumeHKD24h = Double(volumeHKD24hTemp)
+        } else {
+            volumeHKD24h = nil
+        }
+        if let marketCapHKDTemp = try? values.decode(String.self, forKey: .marketCapHKD) {
+            marketCapHKD = Double(marketCapHKDTemp)
+        } else {
+            marketCapHKD = nil
+        }
+        
+        if let priceJPYTemp = try? values.decode(String.self, forKey: .priceJPY) {
+            priceJPY = Double(priceJPYTemp)
+        } else {
+            priceJPY = nil
+        }
+        if let volumeJPY24hTemp = try? values.decode(String.self, forKey: .volumeJPY24h) {
+            volumeJPY24h = Double(volumeJPY24hTemp)
+        } else {
+            volumeJPY24h = nil
+        }
+        if let marketCapJPYTemp = try? values.decode(String.self, forKey: .marketCapJPY) {
+            marketCapJPY = Double(marketCapJPYTemp)
+        } else {
+            marketCapJPY = nil
+        }
     }
 }
 

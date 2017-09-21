@@ -17,20 +17,4 @@ CryptoCurrencyKit.fetchTickers { response in
     }
 }
 
-CryptoCurrencyKit.fetchTicker(coinName: "BitCoin", convert: .jpy) { response in
-    switch response {
-    case .success(let bitCoin):
-        print(bitCoin.priceJPY)
-    case .failure(let error):
-        print(error)
-    }
-}
-
-CryptoCurrencyKit.fetchGlobal(convert: .cny) { response in
-    switch response {
-    case .success(let data):
-        print(data)
-    case .failure(let error):
-        print(error)
-    }
-}
+RunLoop.main.run()
