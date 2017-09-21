@@ -11,9 +11,9 @@ import CryptoCurrencyKit
 CryptoCurrencyKit.fetchTickers { response in
     switch response {
     case .success(let data):
-        print(data)
+        print("success")
     case .failure(let error):
-        print(error)
+        print("failure")
     }
 }
 

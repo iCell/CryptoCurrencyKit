@@ -9,18 +9,18 @@ public struct Ticker {
     public let id: String
     public let name: String
     public let symbol: String
-    public let rank: Int?
+    public let rank: Int
     
     public let availableSupply: Double?
     public let totalSupply: Double?
     public let percentChange1h: Double?
     public let percentChange24h: Double?
     public let percentChange7d: Double?
-    public let lastUpdated: Double?
+    public let lastUpdated: Double
     
-    public let priceBTC: Double?
+    public let priceBTC: Double
     
-    public let priceUSD: Double?
+    public let priceUSD: Double
     public let volumeUSD24h: Double?
     public let marketCapUSD: Double?
     
@@ -132,7 +132,7 @@ extension Ticker: Decodable {
         id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         symbol = try values.decode(String.self, forKey: .symbol)
-        rank = try Int(values.decode(String.self, forKey: .rank))
+        rank =  try Int(values.decode(String.self, forKey: .rank))!
 
         if let availableSupplyTemp = try? values.decode(String.self, forKey: .availableSupply) {
             availableSupply = Double(availableSupplyTemp)
@@ -144,13 +144,10 @@ extension Ticker: Decodable {
         } else {
             totalSupply = nil
         }
-        if let lastUpdatedTemp = try? values.decode(String.self, forKey: .lastUpdated) {
-            lastUpdated = Double(lastUpdatedTemp)
-        } else {
-            lastUpdated = nil
-        }
-        priceBTC = try Double(values.decode(String.self, forKey: .priceBTC))
-        priceUSD = try Double(values.decode(String.self, forKey: .priceUSD))
+        lastUpdated = try Double(values.decode(String.self, forKey: .lastUpdated))!
+
+        priceBTC = try Double(values.decode(String.self, forKey: .priceBTC))!
+        priceUSD = try Double(values.decode(String.self, forKey: .priceUSD))!
         if let volumeUSD24hTemp = try? values.decode(String.self, forKey: .volumeUSD24h) {
             volumeUSD24h = Double(volumeUSD24hTemp)
         } else {

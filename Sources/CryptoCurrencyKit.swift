@@ -73,30 +73,34 @@ extension CryptoCurrencyKit {
     
     static func requestA<T>(urlRequest: URLRequest, response: ((_ r: ResponseA<T>) -> Void)?) {
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-            if let data = data {
-                do {
-                    let objects = try JSONDecoder().decode([T].self, from: data)
-                    response?(ResponseA.success(objects))
-                } catch let decodeE {
-                    response?(ResponseA.failure(error: decodeE))
+            DispatchQueue.main.async {
+                if let data = data {
+                    do {
+                        let objects = try JSONDecoder().decode([T].self, from: data)
+                        response?(ResponseA.success(objects))
+                    } catch let decodeE {
+                        response?(ResponseA.failure(error: decodeE))
+                    }
+                } else if let error = error {
+                    response?(ResponseA.failure(error: error))
                 }
-            } else if let error = error {
-                response?(ResponseA.failure(error: error))
             }
-            }.resume()
+        }.resume()
     }
     
     static func requestD<T>(urlRequest: URLRequest, response: ((_ r: ResponseD<T>) -> Void)?) {
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-            if let data = data {
-                do {
-                    let object = try JSONDecoder().decode(T.self, from: data)
-                    response?(ResponseD.success(object))
-                } catch let decodeE {
-                    response?(ResponseD.failure(error: decodeE))
+            DispatchQueue.main.async {
+                if let data = data {
+                    do {
+                        let object = try JSONDecoder().decode(T.self, from: data)
+                        response?(ResponseD.success(object))
+                    } catch let decodeE {
+                        response?(ResponseD.failure(error: decodeE))
+                    }
+                } else if let error = error {
+                    response?(ResponseD.failure(error: error))
                 }
-            } else if let error = error {
-                response?(ResponseD.failure(error: error))
             }
         }.resume()
     }
