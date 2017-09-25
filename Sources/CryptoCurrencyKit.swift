@@ -60,6 +60,14 @@ extension CryptoCurrencyKit {
                 return "$"
             }
         }
+        
+        public var allValues: [Money] {
+            return [.usd, .eur, .gbp, .jpy, .cny, .hkd]
+        }
+        
+        public var allRawValues: [String] {
+            return allValues.map { $0.rawValue }
+        }
     }
 }
 
