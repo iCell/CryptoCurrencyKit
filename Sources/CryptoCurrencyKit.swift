@@ -61,11 +61,11 @@ extension CryptoCurrencyKit {
             }
         }
         
-        public var allValues: [Money] {
+        public static var allValues: [Money] {
             return [.usd, .eur, .gbp, .jpy, .cny, .hkd]
         }
         
-        public var allRawValues: [String] {
+        public static var allRawValues: [String] {
             return allValues.map { $0.rawValue }
         }
     }
