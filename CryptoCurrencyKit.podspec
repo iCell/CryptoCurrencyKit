@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'CryptoCurrencyKit'
-  s.version      = '0.2.1'
+  s.version      = '0.2.2'
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.homepage     = 'https://github.com/iCell/CryptoCurrency'
   s.authors      = { 'iCell' => 'icell.vip@gmail.com' }

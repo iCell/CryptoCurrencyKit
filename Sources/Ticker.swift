@@ -16,11 +16,11 @@ public struct Ticker {
     public let percentChange1h: Double?
     public let percentChange24h: Double?
     public let percentChange7d: Double?
-    public let lastUpdated: Double
+    public let lastUpdated: Double?
     
-    public let priceBTC: Double
+    public let priceBTC: Double?
     
-    public let priceUSD: Double
+    public let priceUSD: Double?
     public let volumeUSD24h: Double?
     public let marketCapUSD: Double?
     
@@ -197,10 +197,22 @@ extension Ticker: Decodable {
         } else {
             totalSupply = nil
         }
-        lastUpdated = try Double(values.decode(String.self, forKey: .lastUpdated))!
+        if let lastUpdatedTemp = try? values.decode(String.self, forKey: .lastUpdated) {
+            lastUpdated = Double(lastUpdatedTemp)
+        } else {
+            lastUpdated = nil
+        }
 
-        priceBTC = try Double(values.decode(String.self, forKey: .priceBTC))!
-        priceUSD = try Double(values.decode(String.self, forKey: .priceUSD))!
+        if let priceBTCTemp = try? values.decode(String.self, forKey: .priceBTC) {
+            priceBTC = Double(priceBTCTemp)
+        } else {
+            priceBTC = nil
+        }
+        if let priceUSDTemp = try? values.decode(String.self, forKey: .priceUSD) {
+            priceUSD = Double(priceUSDTemp)
+        } else {
+            priceUSD = nil
+        }
         if let volumeUSD24hTemp = try? values.decode(String.self, forKey: .volumeUSD24h) {
             volumeUSD24h = Double(volumeUSD24hTemp)
         } else {
