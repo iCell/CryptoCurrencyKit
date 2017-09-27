@@ -179,6 +179,12 @@ extension Ticker: Encodable {
     }
 }
 
+extension Ticker {
+    public init(id: String, symbol: String, name: String, rank: Int, availableSupply: Double?, totalSupply: Double?, percentChange1h: Double?, percentChange24h: Double?, percentChange7d: Double?, lastUpdated: Double?, priceBTC: Double?, priceUSD: Double?, volumeUSD24h: Double?, marketCapUSD: Double?, priceEUR: Double?, volumeEUR24h: Double?, marketCapEUR: Double?, priceGBP: Double?, volumeGBP24h: Double?, marketCapGBP: Double?, priceJPY: Double?, volumeJPY24h: Double?, marketCapJPY: Double?, priceCNY: Double?, volumeCNY24h: Double?, marketCapCNY: Double?, priceHKD: Double?, volumeHKD24h: Double?, marketCapHKD: Double?) {
+        self.init(id: id, name: name, symbol: symbol, rank: rank, availableSupply: availableSupply, totalSupply: totalSupply, percentChange1h: percentChange1h, percentChange24h: percentChange24h, percentChange7d: percentChange7d, lastUpdated: lastUpdated, priceBTC: priceBTC, priceUSD: priceUSD, volumeUSD24h: volumeUSD24h, marketCapUSD: marketCapUSD, priceEUR: priceEUR, volumeEUR24h: volumeUSD24h, marketCapEUR: marketCapEUR, priceGBP: priceGBP, volumeGBP24h: volumeGBP24h, marketCapGBP: marketCapGBP, priceJPY: priceJPY, volumeJPY24h: volumeJPY24h, marketCapJPY: marketCapJPY, priceCNY: priceCNY, volumeCNY24h: volumeCNY24h, marketCapCNY: marketCapCNY, priceHKD: priceHKD, volumeHKD24h: volumeHKD24h, marketCapHKD: marketCapHKD)
+    }
+}
+
 extension Ticker: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

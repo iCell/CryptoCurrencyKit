@@ -55,6 +55,12 @@ public struct Global {
     }
 }
 
+extension Global {
+    public init(activeCurrencies: Int, bitCoinPercentageOfMarketCap: Double, activeAssets: Int, activeMarkets: Int, totalMarketCapUSD: Double, totalVolumeUSD24h: Double, totalMarketCapEUR: Double?, totalVolumeEUR24h: Double?, totalMarketCapGBP: Double?, totalVolumeGBP24h: Double?, totalMarketCapJPY: Double?, totalVolumeJPY24h: Double?, totalMarketCapCNY: Double?, totalVolumeCNY24h: Double?, totalMarketCapHKD: Double?, totalVolumeHKD24h: Double?) {
+        self.init(bitCoinPercentageOfMarketCap: bitCoinPercentageOfMarketCap, activeCurrencies: activeCurrencies, activeAssets: activeAssets, activeMarkets: activeMarkets, totalMarketCapUSD: totalMarketCapUSD, totalVolumeUSD24h: totalVolumeUSD24h, totalMarketCapEUR: totalMarketCapEUR, totalVolumeEUR24h: totalVolumeEUR24h, totalMarketCapGBP: totalMarketCapGBP, totalVolumeGBP24h: totalVolumeGBP24h, totalMarketCapJPY: totalMarketCapJPY, totalVolumeJPY24h: totalVolumeJPY24h, totalMarketCapCNY: totalMarketCapCNY, totalVolumeCNY24h: totalVolumeCNY24h, totalMarketCapHKD: totalMarketCapHKD, totalVolumeHKD24h: totalVolumeHKD24h)
+    }
+}
+
 extension Global: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
