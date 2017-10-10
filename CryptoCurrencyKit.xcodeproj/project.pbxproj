@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E81D561B1F720B9800EDBDBB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D561A1F720B9800EDBDBB /* main.swift */; };
+		E8D027421F7F4E9500C0F33A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D027411F7F4E9500C0F33A /* Request.swift */; };
+		E8D027441F7F598E00C0F33A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D027431F7F598E00C0F33A /* Graph.swift */; };
 		OBJ_21 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_27 /* CryptoCurrencyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* CryptoCurrencyKit.swift */; };
 		OBJ_28 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Global.swift */; };
@@ -40,6 +42,8 @@
 		"CryptoCurrencyKit::CryptoCurrencyKit::Product" /* CryptoCurrencyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoCurrencyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81D56181F720B9800EDBDBB /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81D561A1F720B9800EDBDBB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E8D027411F7F4E9500C0F33A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E8D027431F7F598E00C0F33A /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		OBJ_10 /* CryptoCurrencyKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrencyKit.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
@@ -88,7 +92,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -97,7 +101,6 @@
 				E81D56191F720B9800EDBDBB /* Demo */,
 				OBJ_14 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -120,8 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* CryptoCurrencyKit.swift */,
+				E8D027411F7F4E9500C0F33A /* Request.swift */,
 				OBJ_11 /* Global.swift */,
 				OBJ_12 /* Ticker.swift */,
+				E8D027431F7F598E00C0F33A /* Graph.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -199,7 +204,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,8 +238,10 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_27 /* CryptoCurrencyKit.swift in Sources */,
+				E8D027421F7F4E9500C0F33A /* Request.swift in Sources */,
 				OBJ_28 /* Global.swift in Sources */,
 				OBJ_29 /* Ticker.swift in Sources */,
+				E8D027441F7F598E00C0F33A /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

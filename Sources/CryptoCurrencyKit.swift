@@ -33,6 +33,35 @@ public struct CryptoCurrencyKit {
         let urlRequest = URLRequest(url: URL(string: "https://api.coinmarketcap.com/v1/global/")!)
         requestD(urlRequest: urlRequest, response: response)
     }
+    
+    public static func fetchGraph(_ graph: Graph, from fromDate: Date, to toDate: Date, response: ((_ r: ResponseA<GraphLine>) -> Void)?) {
+        let fromInterval = Int(fromDate.timeIntervalSince1970 * 1000)
+        let toInterval = Int(toDate.timeIntervalSince1970 * 1000)
+        let urlRequest = URLRequest(url: URL(string: "https://graphs.coinmarketcap.com/currencies/bitcoin/\(fromInterval)/\(toInterval)/")!)
+        requestRaw(urlRequest: urlRequest) { r in
+            switch r {
+            case .success(let data):
+                do {
+                    if let decoded = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: [[Double]]], let values = decoded[graph.rawValue] {
+                        let lines = values.flatMap { ele -> GraphLine? in
+                            if ele.count == 2 {
+                                return GraphLine(value: ele[1], timestamp: ele[0])
+                            } else {
+                                return nil
+                            }
+                        }
+                        response?(ResponseA.success(lines))
+                    } else {
+                        response?(ResponseA.failure(error: CCKError.invalidResponse))
+                    }
+                } catch {
+                    response?(ResponseA.failure(error: error))
+                }
+            case .failure(let error):
+                response?(ResponseA.failure(error: error))
+            }
+        }
+    }
 }
 
 extension CryptoCurrencyKit {
@@ -68,51 +97,5 @@ extension CryptoCurrencyKit {
         public static var allRawValues: [String] {
             return allValues.map { $0.rawValue }
         }
-    }
-}
-
-extension CryptoCurrencyKit {
-    public enum ResponseD<T: Codable> {
-        case failure(error: Error)
-        case success(T)
-    }
-    
-    public enum ResponseA<T: Codable> {
-        case failure(error: Error)
-        case success([T])
-    }
-    
-    static func requestA<T>(urlRequest: URLRequest, response: ((_ r: ResponseA<T>) -> Void)?) {
-        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-            DispatchQueue.main.async {
-                if let data = data {
-                    do {
-                        let objects = try JSONDecoder().decode([T].self, from: data)
-                        response?(ResponseA.success(objects))
-                    } catch let decodeE {
-                        response?(ResponseA.failure(error: decodeE))
-                    }
-                } else if let error = error {
-                    response?(ResponseA.failure(error: error))
-                }
-            }
-        }.resume()
-    }
-    
-    static func requestD<T>(urlRequest: URLRequest, response: ((_ r: ResponseD<T>) -> Void)?) {
-        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-            DispatchQueue.main.async {
-                if let data = data {
-                    do {
-                        let object = try JSONDecoder().decode(T.self, from: data)
-                        response?(ResponseD.success(object))
-                    } catch let decodeE {
-                        response?(ResponseD.failure(error: decodeE))
-                    }
-                } else if let error = error {
-                    response?(ResponseD.failure(error: error))
-                }
-            }
-        }.resume()
     }
 }
