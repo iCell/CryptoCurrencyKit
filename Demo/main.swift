@@ -45,10 +45,10 @@ func fetchGraph() {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "YYYY-MM-dd"
     
-    let from = dateFormatter.date(from: "2016-01-01")!
-    let to = dateFormatter.date(from: "2017-01-01")!
+    let current = Date()
+    let from = current.addingTimeInterval(-7 * 24 * 60 * 60)
     
-    CryptoCurrencyKit.fetchGraph(.priceUSD, from: from, to: to) { r in
+    CryptoCurrencyKit.fetchGraph(.priceUSD, for: "bitcoin", from: from, to: current) { r in
         switch r {
         case .success(let lines):
             print(lines)
@@ -57,5 +57,7 @@ func fetchGraph() {
         }
     }
 }
+
+fetchGraph()
 
 RunLoop.main.run()

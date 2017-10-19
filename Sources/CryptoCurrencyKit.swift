@@ -34,10 +34,10 @@ public struct CryptoCurrencyKit {
         requestD(urlRequest: urlRequest, response: response)
     }
     
-    public static func fetchGraph(_ graph: Graph, from fromDate: Date, to toDate: Date, response: ((_ r: ResponseA<GraphLine>) -> Void)?) {
+    public static func fetchGraph(_ graph: Graph, for coin: String, from fromDate: Date, to toDate: Date, response: ((_ r: ResponseA<GraphLine>) -> Void)?) {
         let fromInterval = Int(fromDate.timeIntervalSince1970 * 1000)
         let toInterval = Int(toDate.timeIntervalSince1970 * 1000)
-        let urlRequest = URLRequest(url: URL(string: "https://graphs.coinmarketcap.com/currencies/bitcoin/\(fromInterval)/\(toInterval)/")!)
+        let urlRequest = URLRequest(url: URL(string: "https://graphs.coinmarketcap.com/currencies/\(coin)/\(fromInterval)/\(toInterval)/")!)
         requestRaw(urlRequest: urlRequest) { r in
             switch r {
             case .success(let data):
